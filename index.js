@@ -55,7 +55,7 @@ function queryLen() {
     await queryData(len - 1);
     await queryData(len);
 
-    console.log('-------------------分割线-------------------');
+    console.log('--------------------------------------------------');
   });
 }
 
@@ -63,7 +63,7 @@ function queryData(len) {
   return new Promise((resolve, reject) => {
     const spider = new Spider();
     spider.fetch(`https://bbs.hupu.com/${tiezi}-${len}.html`, (err, $) => {
-      console.log(`第${len}页`);
+      console.log(`第${len}页`, '----------------------------');
       const result = spider.parseData(err, $);
       resolve();
     });
