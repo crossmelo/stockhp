@@ -5,7 +5,8 @@ const app = express();
 const reg = /\n|\s+/g;
 const reg2 = /<[^>]*>/g;
 const reg3 = /发自|手机|虎扑|m.hupu.com|客户端|iPhone|Android/g;
-const tiezi = 37618332; //
+const tiezi = 33405590;
+const tieziUrl = `https://m.hupu.com/bbs/${tiezi}.html`;
 
 class Spider {
   fetch(url, callback) {
@@ -23,7 +24,7 @@ class Spider {
 
   parseLen(err, $) {
     if (!err) {
-      let result = $('#bbstopic_set').attr('data-maxpage');
+      let result = JSON.stringify($('body').html());
       return result;
     }
   }
@@ -50,10 +51,11 @@ class Spider {
 
 function queryLen() {
   const spider = new Spider();
-  spider.fetch(`https://bbs.hupu.com/${tiezi}.html`, async (err, $) => {
+  spider.fetch(tieziUrl, async (err, $) => {
     const len = spider.parseLen(err, $);
-    await queryData(len - 1);
-    await queryData(len);
+    console.log(len);
+    // await queryData(len - 1);
+    // await queryData(len);
 
     console.log('--------------------------------------------------');
   });
@@ -73,8 +75,8 @@ function queryData(len) {
 queryLen();
 setInterval(() => {
   queryLen();
-}, 60000);
+}, 20000);
 
-app.listen(6666, () => {
-  console.log('开启服务，端口6666');
+app.listen(6688, () => {
+  console.log('开启服务，端口6688');
 });
