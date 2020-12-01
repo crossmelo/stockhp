@@ -4,21 +4,32 @@ const iconv = require('iconv-lite');
 const app = express();
 
 const arr = [
-  // 'hk00981',
+  "sh000001",
+  "sz399006",
+  'hk00981',
   'sh688981',
-  // 'sh000300',
-  'sz300433',
-  // 'sz300136',
-  'sz002600',
-  'sh603986',
+  'sh000300',
   'sh600030', // zhongxin
-  'sh601066', // jiantou
-  'sz002241', // geer
-  'hk02382', //shunyu
-  'sh688126', // hugui
+  // 'sh601066', // jiantou
+  // 'sh601628', // renshou
+  'sh601336', // xinhua
+  // 'sh688126', // hugui
+  // 'hk02382', //shunyu
+  // 'sz002475', // lixun
+  // 'sz002241', // geer
+  'sz300433', // lansi
+  // 'sz300136', // xinwei
+  // 'sz002600', // lingyi
+  // 'sz300782', // zhuodi
+  'sh603501', // weier
+  'sh603986', // zhaoyi
+  'sh600584', // changdian
+  'sz300623', // jiejie
+  'sz300373', // yangjie
+  // 'sh605111', // xinjieneng
+  // 'sh605358', // liang
   // "sh600703", // sanan
-  'sh603983', // wanmei
-  'sh601628', // renshou
+  // 'sh603983', // wanmei
 ];
 
 const fetch = (num) => {
@@ -56,7 +67,7 @@ async function query() {
   //   // console.log('finish');
   // });
 
-  for(let x of arr) {
+  for (let x of arr) {
     await fetch(x);
   }
 }
@@ -65,7 +76,7 @@ query();
 setInterval(() => {
   query();
   console.log('-----------------');
-}, 30000);
+}, 10000);
 
 app.listen(1888, () => {
   console.log('开启服务，端口1888');

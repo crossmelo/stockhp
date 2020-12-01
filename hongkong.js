@@ -19,17 +19,21 @@ class Spider {
 
   parse(err, $) {
     if (!err) {
-      let str = "";
-      $('script').each((i, v) => {
-        if(i === 1) {
-          str = $(v).html().trim();
-        }
-      });
-      const text = str.split(" = ")[1];
-      const text2 = text.slice(0, text.length - 1);
-      const list = JSON.parse(text2)[0];
+      let str = '';
+      try {
+        $('script').each((i, v) => {
+          if (i === 1) {
+            str = $(v).html().trim();
+          }
+        });
+        const text = str.split(' = ')[1];
+        const text2 = text.slice(0, text.length - 1);
+        const list = JSON.parse(text2)[0];
 
-      return list[list.length - 1]
+        return list[list.length - 1];
+      } catch (error) {
+        return '';
+      }
     }
   }
 }
@@ -39,7 +43,7 @@ function query(name) {
   spider.fetch(`http://data.10jqka.com.cn/hgt/${name}/`, async (err, $) => {
     const data = spider.parse(err, $);
 
-    console.log(name === 'sgtb' ? '深股通' : '沪股通', data);
+    console.log(name === 'sgtb' ? '深股通' : '沪股通', data[0], data[1] + '');
   });
 }
 
