@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "hp": "node index.js",
-    "sl": "node stocklist.js",
+    "sh": "node short.js",
+    "sl": "node newstocklist.js",
     "hk": "node hongkong.js"
   },
   "repository": {

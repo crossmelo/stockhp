@@ -4,8 +4,8 @@ const iconv = require('iconv-lite');
 const app = express();
 
 const arr = [
-  "sh000001",
-  "sz399006",
+  'sh000001',
+  'sz399006',
   'hk00981',
   'sh688981',
   'sh000300',
@@ -31,18 +31,28 @@ const arr = [
   'sz300373', // yangjie
   'sh605111', // xinjieneng
   'sh605358', // liang
-  "sh600703", // sanan
+  'sh600703', // sanan
 ];
 
-const fetch = (num) => {
+const total = arr.map((ele) => `s_${ele}`).join(',');
+
+const fetch = () => {
   return new Promise((resolve, reject) => {
-    const url = `http://qt.gtimg.cn/q=${num}`;
+    const url = `http://hq.sinajs.cn/list=${total}`;
     request({ url: url, encoding: null }, (err, response, body) => {
       try {
         const data = iconv.decode(body, 'gb2312');
-        const list = data.toString('utf8').split('~');
-        console.log(list[1], list[3], list[32] + '%');
-
+        data
+          .replace(/\n/gi, '')
+          .split(';')
+          .forEach((ele) => {
+            if (ele) {
+              try {
+                const list = ele.split(',');
+                console.log(list[0].split('"')[1], list[1], list[3] + '%');
+              } catch (error) {}
+            }
+          });
         resolve();
       } catch (error) {
         // reject(error);
@@ -51,35 +61,12 @@ const fetch = (num) => {
   });
 };
 
-async function query() {
-  // try {
-  //   arr.forEach(async ele => {
-  //     const url = `http://qt.gtimg.cn/q=${ele}`;
-  //     await fetch(url);
-  //   });
-  // } catch (error) {
-  //   // console.log('error', error);
-  // }
-
-  // const promiseArr = [];
-  // for (let i = 0; i < arr.length; i++) {
-  //   promiseArr.push(fetch(arr[i]));
-  // }
-  // Promise.all(promiseArr).then((rs) => {
-  //   // console.log('finish');
-  // });
-
-  for (let x of arr) {
-    await fetch(x);
-  }
-}
-
-query();
+fetch();
 setInterval(() => {
-  query();
+  fetch();
   console.log('-----------------');
 }, 10000);
 
-app.listen(1888, () => {
-  console.log('开启服务，端口1888');
+app.listen(3888, () => {
+  console.log('开启服务，端口3888');
 });

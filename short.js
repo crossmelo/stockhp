@@ -5,7 +5,7 @@ const app = express();
 const reg = /\n|\s+/g;
 const reg2 = /<[^>]*>/g;
 const reg3 = /发自|手机|虎扑|m.hupu.com|客户端|iPhone|Android/g;
-const tiezi = 42612117; // 
+const tiezi = 41422182; // 
 
 class Spider {
   fetch(url, callback) {
@@ -75,6 +75,6 @@ setInterval(() => {
   queryLen();
 }, 60000);
 
-app.listen(6666, () => {
-  console.log('开启服务，端口6666');
+app.listen(1666, () => {
+  console.log('开启服务，端口1666');
 });

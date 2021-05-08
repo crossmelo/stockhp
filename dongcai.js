@@ -21,7 +21,7 @@ class Spider {
     if (!err) {
       let str = '';
       try {
-        $('script').each((i, v) => {
+        $('north_h_jme').each((i, v) => {
           if (i === 1) {
             str = $(v).html().trim();
           }
@@ -38,13 +38,14 @@ class Spider {
   }
 }
 
-function query(name) {
+function query() {
+  const url = "http://data.eastmoney.com/hsgt/index.html";
   const spider = new Spider();
-  spider.fetch(`http://data.10jqka.com.cn/hgt/${name}/`, async (err, $) => {
+  spider.fetch(url, async (err, $) => {
     try {
       const data = spider.parse(err, $);
   
-      console.log(name === 'sgtb' ? '深股通' : '沪股通', data[0], data[1] + '');
+      console.log(data[0], data[1] + '');
       
     } catch (error) {
       
