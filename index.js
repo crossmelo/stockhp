@@ -5,7 +5,7 @@ const app = express();
 const reg = /\n|\s+/g;
 const reg2 = /<[^>]*>/g;
 const reg3 = /发自|手机|虎扑|m.hupu.com|客户端|iPhone|Android/g;
-const tiezi = 42612117; // 
+const tiezi = 44480303; // 
 
 class Spider {
   fetch(url, callback) {
@@ -52,6 +52,7 @@ function queryLen() {
   const spider = new Spider();
   spider.fetch(`https://bbs.hupu.com/${tiezi}.html`, async (err, $) => {
     const len = spider.parseLen(err, $);
+    // await queryData(len - 2);
     await queryData(len - 1);
     await queryData(len);
 

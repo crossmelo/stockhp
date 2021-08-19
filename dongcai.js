@@ -21,16 +21,24 @@ class Spider {
     if (!err) {
       let str = '';
       try {
-        $('north_h_jme').each((i, v) => {
+        console.log(JSON.stringify($('.contentBox').html()), JSON.stringify($('.contentBox').text()));
+        // console.log(JSON.stringify($('.sszjl').html()), JSON.stringify($('.sszjl').text()));
+        // console.log(JSON.stringify($('sszjl').html()), JSON.stringify($('sszjl').text()));
+        // console.log(JSON.stringify($('#sszjl_table').html()), JSON.stringify($('#sszjl_table').text()));
+        // console.log(JSON.stringify($('sszjl_table').html()), JSON.stringify($('sszjl_table').text()));
+        $('sszjl').each((i, v) => {
+          console.log(JSON.stringify($(v).html().trim()));
           if (i === 1) {
             str = $(v).html().trim();
           }
         });
-        const text = str.split(' = ')[1];
-        const text2 = text.slice(0, text.length - 1);
-        const list = JSON.parse(text2)[0];
+        // console.log(str);
+        // const text = str.split(' = ')[1];
+        // const text2 = text.slice(0, text.length - 1);
+        // const list = JSON.parse(text2)[0];
 
-        return list[list.length - 1];
+        // return list[list.length - 1];
+        return str;
       } catch (error) {
         return '';
       }
@@ -39,13 +47,14 @@ class Spider {
 }
 
 function query() {
-  const url = "http://data.eastmoney.com/hsgt/index.html";
+  const url = "https://data.eastmoney.com/hsgtcg/gzcglist.html";
   const spider = new Spider();
   spider.fetch(url, async (err, $) => {
     try {
       const data = spider.parse(err, $);
+      console.log(JSON.stringify(data));
   
-      console.log(data[0], data[1] + '');
+      // console.log(data[0], data[1] + '');
       
     } catch (error) {
       

@@ -7,6 +7,7 @@
     "hp": "node index.js",
     "sh": "node short.js",
     "sl": "node newstocklist.js",
+    "sl2": "node newstocklist2.js",
     "hk": "node hongkong.js"
   },
   "repository": {

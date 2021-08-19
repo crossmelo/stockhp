@@ -4,50 +4,26 @@ const iconv = require('iconv-lite');
 const app = express();
 
 const arr = [
-  // 'sh000001',
-  // 'sz399006',
+  'sh000001',
+  'sz399006',
+  'hkHSI',
   // 'hk00981',
-  // 'sh688981',
+  'sh688981',
+  'hk01347',
+  'sh510050', 
   // 'sh000300',
-  // 'sh600030', // zhongxin
-  // 'sh601995', // zhongjin
+  'sh600030', // zhongxin
+  'sh601995', // zhongjin
+  'sz300059',
+  'sh600519', // maotai
   // 'sh600906', 
   // 'sh601377', 
   // 'sh601601', // taibao
-  // 'sz000001', // pingyin
+  'sz000001', // pingyin
   // 'sh688126', // hugui
-  // 'hk02382', //shunyu
-  'sz002475', // lixun
-  'sz002241', // geer
-  'sz300433', // lansi
-  // 'sz002600', // lingyi
-  // 'sz300782', // zhuodi
-  // 'sh603501', // weier
-  // 'sh600703', // sanan
-  // 'sz002371', // huachuang
-  'sh600584', // changdian
-  // 'sz002156', // tongfu
-  // 'sh603290', // sida
-  // 'sh600460', // shilanwei
-  // 'sz300623', // jiejie
-  'sz300373', // yangjie
-  // 'sh605111', // xinjieneng
-  // 'sh605358', // liang
-  'sh603986', // zhaoyi
-  // 'sh688396', // huarun
-  // 'sz300061',
-  'sz300122',
-  'sz300142',
-  'sh600196', 
-  'sz002410',
-  'sz002351',
-  'sz002008',
-  'sz300253',
-  // 'sz300009',
-  'sh600597', 
-  // 'sz002891', 
-  // 'sz300124',
-  // 'sh510050', 
+  'hk02382', //shunyu
+  'sz000792',
+  'sz300750',
 ];
 
 const total = arr.map((ele) => `s_${ele}`).join(',');
@@ -83,6 +59,6 @@ setInterval(() => {
   console.log('--------敬畏市场，控制回撤---------');
 }, 10000);
 
-app.listen(2888, () => {
-  console.log('开启服务，端口2888');
+app.listen(3888, () => {
+  console.log('开启服务，端口3888');
 });
