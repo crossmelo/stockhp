@@ -5,28 +5,27 @@ const colors = require('colors');
 const app = express();
 
 const arr = [
-  'sh000001',
-  'sz399006',
-  // 'hkHSI',
+  // 'sh512480', 
   // 'hk00981',
   // 'sh688981',
-  // 'hk01347',
-  'sh510050', 
-  'sh588380',
-  'sh588000',
-  'sh512690',
-  'sh512170',
-  'sz159755',
-  // 'sh000300',
-  'sh600030', // zhongxin
-  'sz300059',
-  'sh600036', 
-  'sz000001', // pingyin
-  'sh600519', // maotai
-  'sz300750',
-  // 'hk02382', //shunyu
-  // 'sz000792',
-  'sh688981',
+  'hk01347',
+  'sz002371', // huachuang
+  'sh688012', // huarun
+  'sh688396', // huarun
+  'sh603290', // sida
+  'sh600460', // shilanwei
+  'sh603986', // zhaoyi
+  'sz300373', // yangjie
+  // 'sz300623', // jiejie
+  // 'sh605111', // xinjieneng
+  // 'sh605358', // liang
+  'sh603501', // weier
+  'sz300782', // zhuoshengwei
+  'sh600703', // sanan
+  'sz300458', // quanzhi
+  'sz300327', // zhongying
+  'sz300346', // nanda
+  // 'sh600584', // changdian
 ];
 
 // const total = arr.map((ele) => `s_${ele}`).join(',');
@@ -74,6 +73,6 @@ setInterval(() => {
   console.log('---敬畏市场，控制回撤---');
 }, 10000);
 
-app.listen(3888, () => {
-  console.log('开启服务，端口3888');
+app.listen(4888, () => {
+  console.log('开启服务，端口4888');
 });

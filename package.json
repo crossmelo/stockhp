@@ -8,6 +8,7 @@
     "sh": "node short.js",
     "sl": "node newstocklist.js",
     "sl2": "node newstocklist2.js",
+    "sl3": "node newstocklist3.js",
     "hk": "node hongkong.js"
   },
   "repository": {
@@ -22,6 +23,7 @@
   "homepage": "https://github.com/crossmelo/stockhp#readme",
   "dependencies": {
     "cheerio": "^1.0.0-rc.3",
+    "colors": "^1.4.0",
     "express": "^4.17.1",
     "request": "^2.88.2"
   }

@@ -5,7 +5,7 @@ const app = express();
 const reg = /\n|\s+/g;
 const reg2 = /<[^>]*>/g;
 const reg3 = /发自|手机|虎扑|m.hupu.com|客户端|iPhone|Android/g;
-const tiezi = 44480303; // 
+const tiezi = 45027006; // 
 
 class Spider {
   fetch(url, callback) {
