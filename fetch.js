@@ -8,7 +8,7 @@ function fetch(total) {
   return new Promise((resolve, reject) => {
     const url = `http://qt.gtimg.cn/r=${Math.random()}q=${total}`;
     request({ url: url, encoding: null }, (err, response, body) => {
-      // console.clear();
+      // console.clear();  // 可以清屏防止卡顿
       try {
         const data = iconv.decode(body, 'gb2312');
         data

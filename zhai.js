@@ -33,7 +33,6 @@ const total = arr.join(',');
 
 fetch(total);
 setInterval(() => {
-  // console.clear();
   fetch(total);
   // console.log('---敬畏市场，控制回撤---');
 }, 10000);

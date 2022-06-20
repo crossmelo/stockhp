@@ -250,7 +250,7 @@ function fetch(total) {
 
 fetch(total);
 setInterval(() => {
-  // console.clear();
+  // console.clear(); // 可以清屏防止卡顿
   fetch(total);
   // console.log('---敬畏市场，控制回撤---');
 }, 10000);
