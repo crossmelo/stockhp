@@ -4,11 +4,15 @@
   "description": "npm i node index.js",
   "main": "index.js",
   "scripts": {
-    "hp": "node index.js",
+    "hp": "node newIndex.js",
     "sh": "node short.js",
     "sl": "node newstocklist.js",
     "sl2": "node newstocklist2.js",
     "sl3": "node newstocklist3.js",
+    "sl4": "node newstocklist4.js",
+    "sl5": "node newstocklist5.js",
+    "all": "node queryAll.js",
+    "zhai": "node zhai.js",
     "hk": "node hongkong.js"
   },
   "repository": {

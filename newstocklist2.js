@@ -1,8 +1,6 @@
 const express = require('express');
-const request = require('request');
-const iconv = require('iconv-lite');
-const colors = require('colors');
 const app = express();
+const fetch = require('./fetch');
 
 const arr = [
   'sh000001',
@@ -12,65 +10,38 @@ const arr = [
   // 'sh688981',
   // 'hk01347',
   'sh510050', 
-  'sh588380',
-  'sh588000',
+  // 'sh588380',
+  // 'sh588000',
+  'sh588050',
   'sh512690',
   'sh512170',
+  'sh516160',
   'sz159755',
+  'sh515790',
+  'sh512480', 
   // 'sh000300',
+  'sz300750',
+  'sh601012', // longji
+  'sh600519', // maotai
   'sh600030', // zhongxin
   'sz300059',
   'sh600036', 
   'sz000001', // pingyin
-  'sh600519', // maotai
-  'sz300750',
-  // 'hk02382', //shunyu
+  // 'sh601318', // pingan
+  // 'hk02382', // shunyu
   // 'sz000792',
   'sh688981',
+  // 'hk01347',
+  'sz002432', // jiuan
+  'sz300760', // mairui
 ];
 
 // const total = arr.map((ele) => `s_${ele}`).join(',');
 const total = arr.join(',');
 
-const fetch = () => {
-  return new Promise((resolve, reject) => {
-    const url = `http://qt.gtimg.cn/r=${Math.random()}q=${total}`;
-    request({ url: url, encoding: null }, (err, response, body) => {
-      try {
-        const data = iconv.decode(body, 'gb2312');
-        data
-          .replace(/\n/gi, '')
-          .split(';')
-          .forEach((ele) => {
-            if (ele) {
-              try {
-                const list = ele.split('~');
-                const num = Number(list[3]);
-
-                const list1 = ele.split('~~');
-                const item1 = list1[1] || '';
-                const list2 = item1.split('~');
-                const percent = list2[2] || '';
-                const max = list2[3] ? Number(list2[3]) : num;
-
-                const discount = (((max - num) / max) * 100).toFixed(1);
-                const show = discount > 100 ? '' : `-${discount}%`;
-
-                console.log(list[1], list[3], `${percent}%`, discount > 1 ? show.red : show);
-              } catch (error) {}
-            }
-          });
-        resolve();
-      } catch (error) {
-        // reject(error);
-      }
-    });
-  });
-};
-
-fetch();
+fetch(total);
 setInterval(() => {
-  fetch();
+  fetch(total);
   console.log('---敬畏市场，控制回撤---');
 }, 10000);
 

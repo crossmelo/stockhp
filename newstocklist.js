@@ -1,104 +1,55 @@
 const express = require('express');
-const request = require('request');
-const iconv = require('iconv-lite');
-const colors = require('colors');
 const app = express();
+const fetch = require('./fetch');
 
 const arr = [
-  // 'sh000001',
-  // 'sz399006',
-  // 'hk00981',
-  // 'sh688981',
-  // 'sh000300',
-  // 'sh600030', // zhongxin
-  // 'sh601995', // zhongjin
-  // 'sh600906', 
-  // 'sh601377', 
-  // 'sh601601', // taibao
-  // 'sz000001', // pingyin
-  // 'sh688126', // hugui
-  // 'hk02382', //shunyu
-  // 'sz300782', // zhuodi
-  // 'sh603501', // weier
-  // 'sh600703', // sanan
-  // 'sz002371', // huachuang
-  // 'sz002156', // tongfu
-  // 'sh603290', // sida
-  // 'sh600460', // shilanwei
-  // 'sz300623', // jiejie
-  // 'sz300373', // yangjie
-  // 'sh605111', // xinjieneng
-  // 'sh605358', // liang
-  // 'sh603986', // zhaoyi
-  // 'sh688396', // huarun
   // 'sz300061',
-  'sz300122',
-  'sz300142',
-  'sh600196', 
-  'sz002410',
-  'sz002008',
-  'sz002351',
-  'sz300253',
+  'sh603392', // wantai
+  'sz300122', // zhifei
+  'sz300142', // wosen
+  'sh600196', // fuxing
+  // 'sz002410', // guanglianda
+  // 'sz300253', // weining
   // 'sz300009',
-  'sh600597', 
   // 'sz002891', 
   // 'sz300124',
   // 'sh510050', 
-  'sh600584', // changdian
-  'sz002475', // lixun
+  // 'sz002475', // lixun
   // 'sz002241', // geer
-  'sz300433', // lansi
+  // 'sz300433', // lansi
+  // 'sz002351', // manbuzhe
   // 'sz002600', // lingyi
-  'sh600320', // zhenhua
-  // 'sz000425', // xugong
-  'sz300124', // huichuang
+  // 'sz002008', // dazu
+  // 'sh600597', // guangming
+  // 'sz300124', // huichuang
+  // 'sz300339', // runhe
+  // 'sh600320', // zhenhua
+  // 'sz002617', // luxiao
+  // 'sz300708', // jucan
   'sz300363', // boteng
-  // 'sz300457', // yinghe
-  'sz300496', // zhongke
+  'sz300204', // shutaishen
+  'sh688180', // junshi
+  'sh688221', // qianyan
+  'sz300412', // jianan
+  'sz301166', // youningwei
+  'sz002915', // zhongxin
+  'sz000876', // xinxiwang
+  'sh601689', // tuopu
+  'sz002738', // zhongkuang
+  'sz128111', // zhongkuang
+  'sh603078', // jianghuawei
+  'sz300576', // rongda
+  'sh600765', // zhongji
+  'sz300065', // hailanxin
+  'sz300007', // hanwei
 ];
 
 // const total = arr.map((ele) => `s_${ele}`).join(',');
 const total = arr.join(',');
 
-const fetch = () => {
-  return new Promise((resolve, reject) => {
-    const url = `http://qt.gtimg.cn/r=${Math.random()}q=${total}`;
-    request({ url: url, encoding: null }, (err, response, body) => {
-      try {
-        const data = iconv.decode(body, 'gb2312');
-        data
-          .replace(/\n/gi, '')
-          .split(';')
-          .forEach((ele) => {
-            if (ele) {
-              try {
-                const list = ele.split('~');
-                const num = Number(list[3]);
-
-                const list1 = ele.split('~~');
-                const item1 = list1[1] || '';
-                const list2 = item1.split('~');
-                const percent = list2[2] || '';
-                const max = list2[3] ? Number(list2[3]) : num;
-
-                const discount = (((max - num) / max) * 100).toFixed(1);
-                const show = discount > 100 ? '' : `-${discount}%`;
-
-                console.log(list[1], list[3], `${percent}%`, discount > 1 ? show.red : show);
-              } catch (error) {}
-            }
-          });
-        resolve();
-      } catch (error) {
-        // reject(error);
-      }
-    });
-  });
-};
-
-fetch();
+fetch(total);
 setInterval(() => {
-  fetch();
+  fetch(total);
   console.log('---敬畏市场，控制回撤---');
 }, 10000);
 
