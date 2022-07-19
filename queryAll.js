@@ -9,55 +9,69 @@ const arr1 = [
   'sz300142', // wosen
   // 'sh600196', // fuxing
   'sz300363', // boteng
+  'sh603127', // zhaoyan
   'sh688180', // junshi
   'sz300204', // shutaishen
-  'sh603538', // meinuohua
+  // 'sz300685', // aide
+  'sh605116', // aoruite
+  // 'sh603538', // meinuohua
+  'sz300171', // dongfulong
   'sz300412', // jianan
+  'sz002915', // zhongxin
   'sz000876', // xinxiwang
-  'sh601689', // tuopu
-  'sz300576', // rongda
+  // 'sh601689', // tuopu
+  // 'sz300576', // rongda
+  'sz300655', // jingrui
   'sz002617', // luxiao
-  'sz300708', // jucan
+  'sz300666', // jiangfeng
+  // 'sz300708', // jucan
   'sz000733', // zhenhua
   'sh600456', // baotai
   'sh688122', // chaodao
   // 'sz300124', // huichuang
-  'sz301256', // huarong
+  // 'sz301256', // huarong
+  // 'sh601137', // bowei
+  'sz002747', // aisidun
+  'sz002026', // weida
   'sz300007', // hanwei
   // 'sh600549', // xiawu
   'sz300339', // runhe
-  'sz002241', // geer
-  'sz002475', // lixun
-  'sz002410', // guanglianda
+  // 'sz002241', // geer
+  // 'sz002475', // lixun
+  // 'sz002410', // guanglianda
 ];
 const arr2 = [
   'sh688261', // dongwei
   'sh603290', // sida
   'sh605111', // xinjieneng
-  'sz300373', // yangjie
-  'sh600460', // shilanwei
-  'sh688396', // huarun
-  'sh605358', // liang
   'sh688187', // shidai
   'sh688711', // hongwei
+  'sh600460', // shilanwei
+  'sz300373', // yangjie
+  'sh688396', // huarun
+  'sh605358', // liang
+  'sz300831', // pairui
+  'sh688206', // gailun
   // 'sz300623', // jiejie
   'sh603078', // jianghuawei
   'sz002371', // huachuang
   'sh603986', // zhaoyi
   'sh600703', // sanan
-  'sz002409', // yake
+  // 'sz002409', // yake
   // 'sz300671', // fuman
   'sz300327', // zhongying
   'sh603650', // tongcheng
   'sz300346', // nanda
-  'sh688019', // anji
+  // 'sh688019', // anji
+  'sz300223', // junzheng
   'sz300474', // jingjiawei
-  'sz300661', // shengbang
+  // 'sz300661', // shengbang
   'sz002049', // ziguang
 ];
 const arr3 = [
   'sh600096', // yuntianhua
-  'sz000422', // yihua
+  'sz300437', // qingshuiyuan
+  // 'sz000422', // yihua
   'sz002176', // jiangte
   'sz002192', // rongjie
   'sz002466', // tianqi
@@ -72,13 +86,14 @@ const arr3 = [
   'sz300487', // lanxiao
   'sz000792', // yanhu
   'sh603799', // huayou
-  'sh600111', // beixi
+  // 'sh600111', // beixi
   'sz002812', // enjie
   'sz300568', // xingyuan
   // 'sh600110', // nuode
   // 'sh688388', // jiayuan
   'sz300496', // zhongke
   'sz002920', // desaixiwei
+  'sh601689', // tuopu
   // 'sz300450', // xiandao
   // 'sz300457', // yinghe
   // 'sz002594', // byd
@@ -93,6 +108,7 @@ const arr4 = [
   'sz002922', // yigeer
   // 'sh688390', // gudewei
   // 'sh688303', // daquan
+  'sh601137', // bowei
   'sh600732', // aixu
   'sh688223', // jingke
   'sz002459', // jingao
@@ -106,7 +122,7 @@ const arr4 = [
   'sh603606', // dongfang
   'sz002487', // dajin
   // 'sh600522', // zhongtian
-  'sh603169', // lanshi
+  // 'sh603169', // lanshi
   'sz000723', // meijin
   'sz300471', // houpu
   'sh600089', // tebian
@@ -130,12 +146,15 @@ const arr5 = [
   'sh600036', 
   // 'sz000001', // pingyin
   'sh688981', // zhongxin
-  'sz002432', // jiuan
   'sz002594', // byd
   'sh601899', // zijin
-  // 'sh601088', // shenhua
   'sh600150', // zhongchuang
+  // 'sh601628', // renshou
+  // 'sh601088', // shenhua
   // 'sh600900', // changjiang
+  'sz002241', // geer
+  // 'sz002475', // lixun
+  // 'sz002410', // guanglianda
 ];
 
 const map1 = {};
@@ -204,7 +223,7 @@ function fetch(total) {
                 const show = discount > 50 ? '' : (discount >= 10 ? ` -${Math.floor(discount) + 1}%` : `-${discount}%`);
 
                 const mapItem = {
-                  name: shortName.includes('新 希') || shortName.includes('酒') ? `${shortName}  ` : (shortName.length > 3 ? shortName : `${shortName}  `),
+                  name: shortName.includes('新 希') || shortName.includes('酒') || shortName.includes('XD') ? `${shortName}  ` : (shortName.length > 3 ? shortName : `${shortName}  `),
                   num: list[3].length > 5 ?  Number(list[3]).toFixed(2) : (list[3].length > 4 ? ` ${Number(list[3]).toFixed(2)}` : `  ${Number(list[3]).toFixed(2)}`),
                   percent,
                   shortPer: (percent < 0 || percent > 9.9) ? (percent <= -9.99 ? ` ${Math.floor(shortPer)}` : shortPer) : ` ${shortPer}`,
@@ -253,7 +272,7 @@ setInterval(() => {
   // console.clear(); // 可以清屏防止卡顿
   fetch(total);
   // console.log('---敬畏市场，控制回撤---');
-}, 10000);
+}, 5000);
 
 app.listen(8888, () => {
   console.log('开启服务，端口8888');

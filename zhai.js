@@ -3,8 +3,9 @@ const app = express();
 const fetch = require('./fetch');
 
 const arr = [
-  'sh118007', // shanshi
-  'sh118006', // alading
+  'sh113582', // huoju
+  // 'sh118007', // shanshi
+  // 'sh118006', // alading
   'sz123070', // penghui
   'sz123027', // lanxiao
   'sz128111', // zhongkuang
@@ -24,7 +25,7 @@ const arr = [
   'sz123073', // tonghe
   'sz123031', // jingrui
   'sz123123', // jiangfeng
-  // 'sh113621', // tongcheng
+  'sh113621', // tongcheng
   'sz128101', // lianchuang
 ];
 
@@ -35,7 +36,7 @@ fetch(total);
 setInterval(() => {
   fetch(total);
   // console.log('---敬畏市场，控制回撤---');
-}, 10000);
+}, 5000);
 
 app.listen(7888, () => {
   console.log('开启服务，端口7888');
