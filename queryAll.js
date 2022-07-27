@@ -5,7 +5,7 @@ const iconv = require('iconv-lite');
 const colors = require('colors');
 
 const arr1 = [
-  'sz300122', // zhifei
+  // 'sz300122', // zhifei
   'sz300142', // wosen
   // 'sh600196', // fuxing
   'sz300363', // boteng
@@ -14,6 +14,7 @@ const arr1 = [
   'sz300204', // shutaishen
   // 'sz300685', // aide
   'sh605116', // aoruite
+  // 'sh600079', // renfu
   // 'sh603538', // meinuohua
   'sz300171', // dongfulong
   'sz300412', // jianan
@@ -23,22 +24,28 @@ const arr1 = [
   // 'sz300576', // rongda
   'sz300655', // jingrui
   'sz002617', // luxiao
-  'sz300666', // jiangfeng
   // 'sz300708', // jucan
-  'sz000733', // zhenhua
+  // 'sz000733', // zhenhua
   'sh600456', // baotai
-  'sh688122', // chaodao
+  // 'sh688122', // chaodao
   // 'sz300124', // huichuang
   // 'sz301256', // huarong
   // 'sh601137', // bowei
   'sz002747', // aisidun
-  'sz002026', // weida
+  // 'sz002026', // weida
+  'sh603393', // xintian
+  'sz002183', // yiyatong
+  'sz000657', // zhongwu
   'sz300007', // hanwei
   // 'sh600549', // xiawu
-  'sz300339', // runhe
+  // 'sz300339', // runhe
   // 'sz002241', // geer
   // 'sz002475', // lixun
   // 'sz002410', // guanglianda
+  'sh601788', // guangda
+  'sh600363', // lianchuangguangdian
+  'sh603636', // nanwei
+  // 'sz300831', // pairui
 ];
 const arr2 = [
   'sh688261', // dongwei
@@ -50,9 +57,9 @@ const arr2 = [
   'sz300373', // yangjie
   'sh688396', // huarun
   'sh605358', // liang
-  'sz300831', // pairui
   'sh688206', // gailun
   // 'sz300623', // jiejie
+  'sz300666', // jiangfeng
   'sh603078', // jianghuawei
   'sz002371', // huachuang
   'sh603986', // zhaoyi
@@ -140,10 +147,10 @@ const arr5 = [
   'sh512480', 
   'sz300750',
   'sh601012', // longji
-  'sh600519', // maotai
+  // 'sh600519', // maotai
   'sh600030', // zhongxin
   'sz300059',
-  'sh600036', 
+  // 'sh600036', 
   // 'sz000001', // pingyin
   'sh688981', // zhongxin
   'sz002594', // byd
@@ -155,6 +162,8 @@ const arr5 = [
   'sz002241', // geer
   // 'sz002475', // lixun
   // 'sz002410', // guanglianda
+  'sz300122', // zhifei
+  'sh600196', // fuxing
 ];
 
 const map1 = {};
@@ -182,7 +191,7 @@ arr5.forEach((ele, index) => {
 })
 
 const arr = [...arr1, arr2, arr3, arr4, arr5];
-const total = arr.join(',');
+const total = arr.join();
 
 function fetch(total) {
   return new Promise((resolve, reject) => {
@@ -211,7 +220,7 @@ function fetch(total) {
                 const list2 = item1.split('~');
 
                 const name = list[1] || '';
-                const shortName = name.includes('ETF') ? (name.length < 6 ? `${name}  ` : name) : name.slice(0, 4);
+                const shortName = name.includes('ETF') ? name : name.slice(0, 4);
                 // const shortName = name.includes('ETF') ? name : (name.length === 3 ? name : (name.slice(0, 2) + '  '));
                 // const shortName = name.includes('ETF') ? name : name.slice(0, 2);
 
@@ -223,7 +232,7 @@ function fetch(total) {
                 const show = discount > 50 ? '' : (discount >= 10 ? ` -${Math.floor(discount) + 1}%` : `-${discount}%`);
 
                 const mapItem = {
-                  name: shortName.includes('新 希') || shortName.includes('酒') || shortName.includes('XD') ? `${shortName}  ` : (shortName.length > 3 ? shortName : `${shortName}  `),
+                  name: shortName.includes(' ') || shortName.includes('酒') || shortName.includes('XD') ? `${shortName}  ` : (shortName.length > 3 ? shortName : `${shortName}  `),
                   num: list[3].length > 5 ?  Number(list[3]).toFixed(2) : (list[3].length > 4 ? ` ${Number(list[3]).toFixed(2)}` : `  ${Number(list[3]).toFixed(2)}`),
                   percent,
                   shortPer: (percent < 0 || percent > 9.9) ? (percent <= -9.99 ? ` ${Math.floor(shortPer)}` : shortPer) : ` ${shortPer}`,

@@ -34,7 +34,7 @@ const arr = [
   'sh600703', // sanan
 ];
 
-const total = arr.map((ele) => `s_${ele}`).join(',');
+const total = arr.map((ele) => `s_${ele}`).join();
 
 const fetch = () => {
   return new Promise((resolve, reject) => {

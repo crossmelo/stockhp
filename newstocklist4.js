@@ -26,8 +26,8 @@ const arr = [
   // 'sh601689', // tuopu
 ];
 
-// const total = arr.map((ele) => `s_${ele}`).join(',');
-const total = arr.join(',');
+// const total = arr.map((ele) => `s_${ele}`).join();
+const total = arr.join();
 
 fetch(total);
 setInterval(() => {

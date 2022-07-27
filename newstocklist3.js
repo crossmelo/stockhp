@@ -33,8 +33,8 @@ const arr = [
   // 'sh600584', // changdian
 ];
 
-// const total = arr.map((ele) => `s_${ele}`).join(',');
-const total = arr.join(',');
+// const total = arr.map((ele) => `s_${ele}`).join();
+const total = arr.join();
 
 fetch(total);
 setInterval(() => {
