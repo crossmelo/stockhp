@@ -3,10 +3,11 @@ const app = express();
 const fetch = require('./fetch');
 
 const arr = [
+  'sh113648', // juxing
   'sh113582', // huoju
   // 'sh118007', // shanshi
   // 'sh118006', // alading
-  'sz123070', // penghui
+  // 'sz123070', // penghui
   'sz123027', // lanxiao
   'sz128111', // zhongkuang
   'sh113016', // xiaokang
@@ -34,9 +35,12 @@ const total = arr.join();
 
 fetch(total);
 setInterval(() => {
-  fetch(total);
+  const hour = new Date().getHours();
+  if ([9, 10, 11, 13, 14].includes(hour)) {
+    fetch(total);
+  }
   // console.log('---敬畏市场，控制回撤---');
-}, 5000);
+}, 20000);
 
 app.listen(7888, () => {
   console.log('开启服务，端口7888');
