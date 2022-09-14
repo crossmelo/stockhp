@@ -5,17 +5,32 @@ const iconv = require('iconv-lite');
 const colors = require('colors');
 
 const arr1 = [
+  'sz300122', // zhifei
+  'sz300142', // wosen
+  // 'sh600196', // fuxing
   // 'sz300363', // boteng
   // 'sh603127', // zhaoyan
   'sz301080', // baipusaisi
+  'sh600079', // renfu
   'sz300204', // shutaishen
-  // 'sh600079', // renfu
   'sz300171', // dongfulong
   'sz300412', // jianan
   'sh688351', // weidian
-  'sh600259', // guangsheng
-  // 'sh600456', // baotai
-  // 'sz000519', // zhongbing
+  'sz002384', // dongshan
+  'sz002241', // geer
+  'sz002475', // lixun
+  'sz002351', // manbuzhe
+  'sz002600', // lingyi
+  'sh600456', // baotai
+  'sh688122', // chaodao
+  'sz300699', // guangwei
+  'sz002049', // ziguang
+  'sh600150', // zhongchuang
+  'sz000519', // zhongbing
+  'sz002410', // guanglianda
+  'sz002183', // yiyatong
+];
+const arr2 = [
   'sh603636', // nanwei
   'sz003040', // chutiankong
   'sz300339', // runhe
@@ -23,22 +38,28 @@ const arr1 = [
   'sz300007', // hanwei
   'sz300831', // pairui
   'sz300655', // jingrui
+  'sz300346', // nanda
+  'sh603650', // tongcheng
+  'sh600703', // sanan
   'sz002617', // luxiao
   'sz002079', // good
+  'sz300474', // jingjiawei
   'sz002156', // tongfu
-  'sz002384', // dongshan
-  'sz002241', // geer
-  'sz002475', // lixun
-  'sz002351', // manbuzhe
-  'sz002600', // lingyi
+  'sh600584', // changdian
+  'sz300316', // jingsheng
+  'sz002338', // aopu
+  'sh601636', // qibing
+  'sh688686', // aopute
+  'sh600259', // guangsheng
+  'sh600309', // wanhua
 ];
-const arr2 = [
+const arr3 = [
   'sh688261', // dongwei
   'sh688187', // shidai
   'sh688711', // hongwei
   'sh603290', // sida
   'sh605111', // xinjieneng
-  'sh600460', // shilanwei
+  // 'sh600460', // shilanwei
   'sz300373', // yangjie
   'sh688396', // huarun
   'sh605358', // liang
@@ -48,7 +69,8 @@ const arr2 = [
   'sh600641', // wanye
   'sz300604', // changchuan
   'sh688037', // xinyuanwei
-  // 'sh603690', // zhichun
+  'sh688383', // xinyichang
+  'sh603690', // zhichun
   // 'sh603986', // zhaoyi
   // 'sh600703', // sanan
   'sz300666', // jiangfeng
@@ -58,19 +80,18 @@ const arr2 = [
   // 'sz300671', // fuman
   // 'sz300327', // zhongying
   'sz300054', // dinglong
-  'sh603650', // tongcheng
+  // 'sh603650', // tongcheng
   // 'sz300655', // jingrui
-  'sz300346', // nanda
+  // 'sz300346', // nanda
   // 'sz300576', // rongda
-  // 'sh688019', // anji
+  'sh688019', // anji
   // 'sz300223', // junzheng
   // 'sz300474', // jingjiawei
   // 'sz300661', // shengbang
-  // 'sz002049', // ziguang
   // 'sz002156', // tongfu
   // 'sh600584', // changdian
 ];
-const arr3 = [
+const arr4 = [
   'sh600096', // yuntianhua
   'sz300437', // qingshuiyuan
   // 'sz000422', // yihua
@@ -98,7 +119,7 @@ const arr3 = [
   'sz300428', // lizhong
   'sz002906', // huayang
 ];
-const arr4 = [
+const arr5 = [
   'sz300693', // shenghong
   'sz300438', // penghui
   'sh688063', // paineng
@@ -123,7 +144,7 @@ const arr4 = [
   'sh600089', // tebian
   'sz000400', // xuji
 ];
-const arr5 = [
+const arr6 = [
   'sh000001',
   'sz399006',
   'sh510050', 
@@ -136,24 +157,17 @@ const arr5 = [
   'sh512480', 
   'sz300750',
   'sh601012', // longji
-  // 'sh600519', // maotai
+  'sh600519', // maotai
   'sh600030', // zhongxin
   'sz300059',
+  'sh601628', // renshou
   // 'sh600036', 
   // 'sz000001', // pingyin
   'sh688981', // zhongxin
   'sz002594', // byd
   'sh601899', // zijin
-  'sh600150', // zhongchuang
-  // 'sh601628', // renshou
-  // 'sh601088', // shenhua
-  // 'sh600900', // changjiang
-  // 'sz002241', // geer
-  // 'sz002475', // lixun
-  'sz002410', // guanglianda
-  'sz300122', // zhifei
-  'sz300142', // wosen
-  // 'sh600196', // fuxing
+  'sh601088', // shenhua
+  'sh600900', // changjiang
 ];
 
 const map1 = {};
@@ -161,6 +175,7 @@ const map2 = {};
 const map3 = {};
 const map4 = {};
 const map5 = {};
+const map6 = {};
 
 const length = arr1.length;
 
@@ -179,8 +194,12 @@ arr4.forEach((ele, index) => {
 arr5.forEach((ele, index) => {
   map5[ele] = index;
 })
+arr6.forEach((ele, index) => {
+  map6[ele] = index;
+})
 
-const arr = [...arr1, arr2, arr3, arr4, arr5];
+// console.log(arr1.length, arr2.length, arr3.length, arr4.length, arr5.length, arr6.length);
+const arr = [...arr1, arr2, arr3, arr4, arr5, arr6];
 const total = arr.join();
 
 function fetch(total) {
@@ -240,6 +259,8 @@ function fetch(total) {
                   mapList[map4[code]].push(mapItem);
                 } else if (arr5.includes(code)) {
                   mapList[map5[code]].push(mapItem);
+                } else if (arr6.includes(code)) {
+                  mapList[map6[code]].push(mapItem);
                 }
 
               } catch (error) {}
@@ -252,7 +273,8 @@ function fetch(total) {
               ele[1].name, ele[1].num, ele[1].percent >= 3 ? `${ele[1].shortPer}%`.yellow : `${ele[1].shortPer}%`, ele[1].discount > 1 ? ele[1].show.red : ele[1].show, '|',
               ele[2].name, ele[2].num, ele[2].percent >= 3 ? `${ele[2].shortPer}%`.yellow : `${ele[2].shortPer}%`, ele[2].discount > 1 ? ele[2].show.red : ele[2].show, '|',
               ele[3].name, ele[3].num, ele[3].percent >= 3 ? `${ele[3].shortPer}%`.yellow : `${ele[3].shortPer}%`, ele[3].discount > 1 ? ele[3].show.red : ele[3].show, '|',
-              ele[4].name, ele[4].num, ele[4].percent >= 3 ? `${ele[4].shortPer}%`.yellow : `${ele[4].shortPer}%`, ele[4].discount > 1 ? ele[4].show.red : ele[4].show
+              ele[4].name, ele[4].num, ele[4].percent >= 3 ? `${ele[4].shortPer}%`.yellow : `${ele[4].shortPer}%`, ele[4].discount > 1 ? ele[4].show.red : ele[4].show, '|',
+              ele[5].name, ele[5].num, ele[5].percent >= 3 ? `${ele[5].shortPer}%`.yellow : `${ele[5].shortPer}%`, ele[5].discount > 1 ? ele[5].show.red : ele[5].show
             );
           } catch {
             console.log('-----')
