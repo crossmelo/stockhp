@@ -5,169 +5,227 @@ const iconv = require('iconv-lite');
 const colors = require('colors');
 
 const arr1 = [
+  'sz300253', // weining
+  'sh688351', // weidian
   'sz300122', // zhifei
   'sz300142', // wosen
-  // 'sh600196', // fuxing
-  // 'sz300363', // boteng
-  // 'sh603127', // zhaoyan
-  'sz301080', // baipusaisi
-  'sh600079', // renfu
-  'sz300204', // shutaishen
   'sz300171', // dongfulong
   'sz300412', // jianan
-  'sh688351', // weidian
-  'sz002384', // dongshan
-  'sz002241', // geer
   'sz002475', // lixun
+  'sz002241', // geer
+  'sz300433', // lansi
   'sz002351', // manbuzhe
   'sz002600', // lingyi
-  'sh600456', // baotai
-  'sh688122', // chaodao
   'sz300699', // guangwei
-  'sz002049', // ziguang
-  'sh600150', // zhongchuang
-  'sz000519', // zhongbing
-  'sz002410', // guanglianda
+  'sz300316', // jingsheng
+  'sh688686', // aopute
+  'sh600096', // yuntianhua
   'sz002183', // yiyatong
+  'sh601636', // qibing
+  'sh603398', // mubang
+  'sh600705', // zhonghangchanrong
+  'sh688039', // danghong
+  'sz300182', // jiecheng
+  // 'sz301312', // zhilifang
+  // 'sh600072', // zhongchuangkeji
+  'sz002077', // dagang
+  // 'sz002579', // zhongjingdianzi
+  'sz002384', // dongshan
+  'sz002273', // shuijing
 ];
 const arr2 = [
+  // 'sh688234', // tianyue
+  'sh603595', // dongni
+  // 'sh600703', // sanan
+  'sz002617', // luxiao
+  // 'sz300831', // pairui
+  // 'sz002079', // good
+  // 'sz000670', // yingfangwei
+  'sz003026', // zhongjingkeji
+  'sz300458', // quanzhi
+  'sh603893', // ruixinwei
+  'sz300474', // jingjiawei
+  'sh688256', // hanwuji
+  'sz000977', // langchao
+  'sh603019', // shuguang
+  'sh603083', // jianqiao
+  'sz300308', // zhongji
+  'sz002281', // guangxun
+  'sz300502', // xinyisheng
+  'sh688787', // haitian
+  'sh601360', // 360
+  'sz002230', // xunfei
+  'sh603000', // renmin
+  'sh603888', // xinhua
+  'sz300188', // meiya
+  'sz300058', // guangbiao
+  'sz300678', // zhongkexinxi
+  'sz300033', // tonghuashun
+  'sz300226', // ganglian
+  'sz300785', // zhidemai
+];
+const arr3 = [
+  // 'sh688261', // dongwei
+  // 'sh688187', // shidai
+  // 'sh688711', // hongwei
+  // 'sh603290', // sida
+  // 'sh605111', // xinjieneng
+  // 'sh600460', // shilanwei
+  'sz300373', // yangjie
+  // 'sh688396', // huarun
+  'sh605358', // liang
+  'sz002371', // huachuang
+  'sh688012', // zhongwei
+  'sz300604', // changchuan
+  'sh600641', // wanye
+  'sz002338', // aopu
+  'sh600895', // zhangjianggaoke
+  'sz002222', // fujing
+  'sh688037', // xinyuanwei
+  // 'sh688383', // xinyichang
+  'sh603690', // zhichun
+  'sh688082', // shengmei
+  'sz300327', // zhongying
+  'sz300655', // jingrui
+  'sz300576', // rongda
+  'sz300346', // nanda
+  'sh603650', // tongcheng
+  'sz300666', // jiangfeng
+  'sz300260', // xinlai
+  'sz002409', // yake
+  'sz300054', // dinglong
+  // 'sh688385', // fudan
+  'sz301269', // jiutian
+  // 'sh688008', // lanqi
+  // 'sz300782', // zhuodi
+  // 'sh603501', // weier
+  // 'sh603986', // zhaoyi
+  // 'sh603160', // huiding
+  'sz002156', // tongfu
+  'sh600584', // changdian
+];
+const arr4 = [
+  // 'sz300124', // huichuan
+  'sz002747', // aisidun
+  'sh688700', // dongwei
+  'sh688017', // lvde
+  'sz002248', // huadong
+  'sz002559', // yawei
+  'sz300607', // tuosida
+  'sz002553', // nanfang
+  // 'sh688025', // jiepute
+  'sh688218', // suzhou
+  'sz002896', // zhongda
+  // 'sz000837', // qinchuang
+  // 'sz002158', // hanzhong
   'sh603636', // nanwei
   'sz003040', // chutiankong
   'sz300339', // runhe
-  'sz002747', // aisidun
-  'sz300007', // hanwei
-  'sz300831', // pairui
-  'sz300655', // jingrui
-  'sz300346', // nanda
-  'sh603650', // tongcheng
-  'sh600703', // sanan
-  'sz002617', // luxiao
-  'sz002079', // good
-  'sz300474', // jingjiawei
-  'sz002156', // tongfu
-  'sh600584', // changdian
-  'sz300316', // jingsheng
-  'sz002338', // aopu
-  'sh601636', // qibing
-  'sh688686', // aopute
-  'sh600259', // guangsheng
-  'sh600309', // wanhua
+  'sz300075', // shuzi
+  'sz300479', // shensi
+  'sz300546', // xiongdi
+  'sz300061', // qitian
+  'sz000032', // shensangda
+  'sh600536', // zhongruan
+  'sz000066', // changcheng
+  'sz300212', // yihualu
+  'sz002368', // taiji
+  'sz002528', // yingfeituo
+  'sz000815', // meiliyun
+  'sz000948', // nantian
 ];
-const arr3 = [
-  'sh688261', // dongwei
-  'sh688187', // shidai
-  'sh688711', // hongwei
-  'sh603290', // sida
-  'sh605111', // xinjieneng
-  // 'sh600460', // shilanwei
-  'sz300373', // yangjie
-  'sh688396', // huarun
-  'sh605358', // liang
-  'sz301269', // jiutian
-  'sh688206', // gailun
-  'sz002371', // huachuang
-  'sh600641', // wanye
-  'sz300604', // changchuan
-  'sh688037', // xinyuanwei
-  'sh688383', // xinyichang
-  'sh603690', // zhichun
-  // 'sh603986', // zhaoyi
-  // 'sh600703', // sanan
-  'sz300666', // jiangfeng
-  // 'sh603078', // jianghuawei
-  'sz300260', // xinlai
-  'sz002409', // yake
-  // 'sz300671', // fuman
-  // 'sz300327', // zhongying
-  'sz300054', // dinglong
-  // 'sh603650', // tongcheng
-  // 'sz300655', // jingrui
-  // 'sz300346', // nanda
-  // 'sz300576', // rongda
-  'sh688019', // anji
-  // 'sz300223', // junzheng
-  // 'sz300474', // jingjiawei
-  // 'sz300661', // shengbang
-  // 'sz002156', // tongfu
-  // 'sh600584', // changdian
-];
-const arr4 = [
-  'sh600096', // yuntianhua
-  'sz300437', // qingshuiyuan
-  // 'sz000422', // yihua
+const arr5 = [
+  'sz002882', // jinlongyu
+  'sz002167', // gaoye
+  'sh603200', // xiba
+  'sh603255', // djd
+  'sz002866', // chuanyi
+  'sh600152', // weike
+  'sz002915', // zhongxinfucai
+  'sz002992', // baoming
+  'sz002585', // shuangxing
+  'sz002529', // haiyuan
+  'sh688630', // xinqi
+  'sz002846', // yinglian
   'sz002176', // jiangte
   'sz002192', // rongjie
   'sz002466', // tianqi
-  'sz000155', // chuanneng
   'sz002738', // zhongkuang
-  // 'sz002497', // yahua
-  'sz002240', // shengxin 
-  // 'sz002245', // weilan
   // 'sz002460', // ganfeng
   'sz002756', // yongxing
   'sz300487', // lanxiao
+  'sz300631', // jiuwu
   'sz000408', // zangge
   'sz000792', // yanhu
-  'sh603799', // huayou
-  // 'sh600111', // beixi
-  'sz000831', // wukuang
-  'sz002812', // enjie
-  'sz300568', // xingyuan
-  'sz300496', // zhongke
-  'sz002920', // desaixiwei
+  // 'sz002812', // enjie
+  // 'sz300568', // xingyuan
+  // 'sz300496', // zhongke
+  // 'sz002920', // desaixiwei
   'sh601689', // tuopu
   'sz300428', // lizhong
-  'sz002906', // huayang
+  'sh603305', // xusheng
 ];
-const arr5 = [
+const arr6 = [
+  'sz002518', // keshida
+  'sz002335', // kehua
+  // 'sz002121', // kelu
   'sz300693', // shenghong
   'sz300438', // penghui
   'sh688063', // paineng
   'sz002837', // yingweike
-  'sz002518', // keshida
-  'sz002335', // kehua
-  'sz002922', // yigeer
+  'sh605117', // deye
+  'sz300827', // shangneng
+  'sz000821', // jingshan
+  'sz001269', // oujing
+  'sz002865', // junda
+  'sz301266', // yubangg
   'sh601137', // bowei
   'sh600732', // aixu
   'sh688223', // jingke
   'sz002459', // jingao
   'sz300118', // risheng
-  'sh603185', // shangji
-  // 'sz300751', // maiwei
+  // 'sh603185', // shangji
+  'sz300724', // jjwc
   'sz300776', // dier
   'sz300274', // yangguang
   'sh600438', // tongwei
-  // 'sz002129', // zhonghuan
+  'sz002129', // zhonghuan
   'sz002487', // dajin
-  'sh603606', // dongfang
-  'sh600522', // zhongtian
-  'sh600089', // tebian
-  'sz000400', // xuji
+  'sh600487', // hengtong
 ];
-const arr6 = [
+const arr7 = [
   'sh000001',
   'sz399006',
   'sh510050', 
-  'sh588050',
+  'sh588050', 
+  'sh513130',
   'sh512690',
   'sh512170',
   'sh516160',
   'sz159755',
   'sh515790',
   'sh512480', 
+  'sh588200', // kechuangxinpian
   'sz300750',
   'sh601012', // longji
-  'sh600519', // maotai
+  // 'sh600519', // maotai
   'sh600030', // zhongxin
-  'sz300059',
-  'sh601628', // renshou
-  // 'sh600036', 
+  'sz300059', // dongcai
+  // 'sh601628', // renshou
+  // 'sh600036', // zhaoshang
   // 'sz000001', // pingyin
   'sh688981', // zhongxin
-  'sz002594', // byd
+  // 'sz002594', // byd
   'sh601899', // zijin
-  'sh601088', // shenhua
-  'sh600900', // changjiang
+  // 'sh601088', // shenhua
+  // 'sh600900', // changjiang
+  'sh600150', // zhongchuan
+  'sh601728', // dianxin
+  'sh601698', // weitong
+  'sh600118', // weixing
+  'sz000831', // zhongxi
+  'sz300114', // diance
+  // 'sz300124', // huichuan
 ];
 
 const map1 = {};
@@ -176,6 +234,7 @@ const map3 = {};
 const map4 = {};
 const map5 = {};
 const map6 = {};
+const map7 = {};
 
 const length = arr1.length;
 
@@ -197,15 +256,19 @@ arr5.forEach((ele, index) => {
 arr6.forEach((ele, index) => {
   map6[ele] = index;
 })
+arr7.forEach((ele, index) => {
+  map7[ele] = index;
+})
 
-// console.log(arr1.length, arr2.length, arr3.length, arr4.length, arr5.length, arr6.length);
-const arr = [...arr1, arr2, arr3, arr4, arr5, arr6];
+// console.log(arr1.length, arr2.length, arr3.length, arr4.length, arr5.length, arr6.length, arr7.length);
+const arr = [...arr1, arr2, arr3, arr4, arr5, arr6, arr7];
 const total = arr.join();
 
 function fetch(total) {
   return new Promise((resolve, reject) => {
     const url = `http://qt.gtimg.cn/r=${Math.random()}q=${total}`;
     request({ url: url, encoding: null }, (err, response, body) => {
+      // console.clear(); // 可以清屏防止卡顿
       try {
         const mapList = [...Array.from({ length }).keys()].map(() => []);
         const data = iconv.decode(body, 'gb2312');
@@ -229,7 +292,7 @@ function fetch(total) {
                 const list2 = item1.split('~');
 
                 const name = list[1] || '';
-                const shortName = name.includes('ETF') ? name : name.slice(0, 4).replace('-', '');
+                const shortName = (name.includes('ETF') || name.includes('TCL')) ? name : name.slice(0, 4).replace('-', '');
                 // const shortName = name.includes('ETF') ? name : (name.length === 3 ? name : (name.slice(0, 2) + '  '));
                 // const shortName = name.includes('ETF') ? name : name.slice(0, 2);
 
@@ -261,11 +324,14 @@ function fetch(total) {
                   mapList[map5[code]].push(mapItem);
                 } else if (arr6.includes(code)) {
                   mapList[map6[code]].push(mapItem);
+                } else if (arr7.includes(code)) {
+                  mapList[map7[code]].push(mapItem);
                 }
 
               } catch (error) {}
             }
           });
+        console.clear(); // 可以清屏防止卡顿
         mapList.forEach(ele => {
           try {
             console.log(
@@ -274,7 +340,8 @@ function fetch(total) {
               ele[2].name, ele[2].num, ele[2].percent >= 3 ? `${ele[2].shortPer}%`.yellow : `${ele[2].shortPer}%`, ele[2].discount > 1 ? ele[2].show.red : ele[2].show, '|',
               ele[3].name, ele[3].num, ele[3].percent >= 3 ? `${ele[3].shortPer}%`.yellow : `${ele[3].shortPer}%`, ele[3].discount > 1 ? ele[3].show.red : ele[3].show, '|',
               ele[4].name, ele[4].num, ele[4].percent >= 3 ? `${ele[4].shortPer}%`.yellow : `${ele[4].shortPer}%`, ele[4].discount > 1 ? ele[4].show.red : ele[4].show, '|',
-              ele[5].name, ele[5].num, ele[5].percent >= 3 ? `${ele[5].shortPer}%`.yellow : `${ele[5].shortPer}%`, ele[5].discount > 1 ? ele[5].show.red : ele[5].show
+              ele[5].name, ele[5].num, ele[5].percent >= 3 ? `${ele[5].shortPer}%`.yellow : `${ele[5].shortPer}%`, ele[5].discount > 1 ? ele[5].show.red : ele[5].show, '|',
+              ele[6].name, ele[6].num, ele[6].percent >= 3 ? `${ele[6].shortPer}%`.yellow : `${ele[6].shortPer}%`, ele[6].discount > 1 ? ele[6].show.red : ele[6].show
             );
           } catch {
             console.log('-----')
