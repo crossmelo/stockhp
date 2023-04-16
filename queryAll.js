@@ -11,34 +11,31 @@ const arr1 = [
   'sz300142', // wosen
   'sz300171', // dongfulong
   'sz300412', // jianan
+  'sz002384', // dongshan
+  'sz002273', // shuijing
   'sz002475', // lixun
   'sz002241', // geer
   'sz300433', // lansi
   'sz002351', // manbuzhe
   'sz002600', // lingyi
   'sz300699', // guangwei
-  'sz300316', // jingsheng
   'sh688686', // aopute
-  'sh600096', // yuntianhua
   'sz002183', // yiyatong
   'sh601636', // qibing
-  'sh603398', // mubang
-  'sh600705', // zhonghangchanrong
+  'sz002077', // dagang
+  'sz300373', // yangjie
+  'sh605358', // liang
+  'sh603595', // dongni
+  // 'sh600703', // sanan
+  'sz002617', // luxiao
+  // 'sz002579', // zhongjingdianzi
   'sh688039', // danghong
+  'sz002151', // beidou
   // 'sz301312', // zhilifang
   // 'sh600072', // zhongchuangkeji
-  'sz002077', // dagang
-  // 'sz002579', // zhongjingdianzi
-  'sz002384', // dongshan
-  'sz002273', // shuijing
-  'sz002151', // beidou
 ];
 const arr2 = [
-  'sh600745', // wentai
-  // 'sz300831', // pairui
-  // 'sz002079', // good
-  // 'sz000670', // yingfangwei
-  'sz003026', // zhongjingkeji
+  'sz002463', // hudian
   'sz300458', // quanzhi
   'sh603893', // ruixinwei
   'sz300474', // jingjiawei
@@ -62,17 +59,21 @@ const arr2 = [
   'sz300678', // zhongkexinxi
   'sh603171', // shuiyou
   'sz300182', // jiecheng
+  // 'sh688343', // yuntian
 ];
 const arr3 = [
+  'sh600745', // wentai
+  // 'sz300831', // pairui
+  // 'sz002079', // good
+  // 'sz000670', // yingfangwei
+  'sz003026', // zhongjingkeji
   // 'sh688261', // dongwei
   // 'sh688187', // shidai
   // 'sh688711', // hongwei
   // 'sh603290', // sida
+  // 'sh688396', // huarun
   // 'sh605111', // xinjieneng
   // 'sh600460', // shilanwei
-  'sz300373', // yangjie
-  // 'sh688396', // huarun
-  'sh605358', // liang
   'sz002371', // huachuang
   'sh688012', // zhongwei
   'sz300604', // changchuan
@@ -166,9 +167,8 @@ const arr5 = [
   // 'sz300428', // lizhong
   // 'sh603305', // xusheng
   // 'sh688234', // tianyue
-  'sh603595', // dongni
-  // 'sh600703', // sanan
-  'sz002617', // luxiao
+  'sz000831', // zhongxi
+  'sh600096', // yuntianhua
 ];
 const arr6 = [
   'sz002882', // jinlongyu
@@ -199,8 +199,8 @@ const arr6 = [
   'sh601137', // bowei
   'sh600732', // aixu
   // 'sh688223', // jingke
-  'sz002459', // jingao
-  'sz300118', // risheng
+  // 'sz002459', // jingao
+  // 'sz300118', // risheng
   // 'sh603185', // shangji
   'sz300724', // jjwc
   // 'sz300776', // dier
@@ -209,6 +209,8 @@ const arr6 = [
   // 'sz002129', // zhonghuan
   // 'sz002487', // dajin
   // 'sh600487', // hengtong
+  'sz300316', // jingsheng
+  'sh603398', // mubang
 ];
 const arr7 = [
   'sh000001',
@@ -240,8 +242,8 @@ const arr7 = [
   'sh601728', // dianxin
   'sh601698', // weitong
   'sh600118', // weixing
-  'sz000831', // zhongxi
   'sz300114', // diance
+  'sh600705', // zhonghangchanrong
   // 'sz300124', // huichuan
 ];
 
