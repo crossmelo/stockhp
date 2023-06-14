@@ -180,12 +180,16 @@ const arr5 = [
   'sz002933', // xinxing
 ];
 const arr6 = [
+  'sh600415', // shazhucheng
+  'sh603773', // woge
+  'sz300820', // yingjie
+  'sz300226', // ganglian
   // 'sz002176', // jiangte
   // 'sz002192', // rongjie
-  'sz002466', // tianqi
+  // 'sz002466', // tianqi
   'sz002738', // zhongkuang
   // 'sz002460', // ganfeng
-  'sz002756', // yongxing
+  // 'sz002756', // yongxing
   'sz300487', // lanxiao
   'sz300631', // jiuwu
   // 'sz000408', // zangge
@@ -198,8 +202,8 @@ const arr6 = [
   // 'sz300428', // lizhong
   'sh603305', // xusheng
   'sz002518', // keshida
-  'sz002335', // kehua
-  'sz300693', // shenghong
+  // 'sz002335', // kehua
+  // 'sz300693', // shenghong
   // 'sz300438', // penghui
   // 'sh688063', // paineng
   'sz002837', // yingweike
@@ -392,13 +396,13 @@ function fetch(total) {
         mapList.forEach(ele => {
           try {
             console.log(
-              ele[0].name, ele[0].num, ele[0].percent >= 3 ? `${ele[0].shortPer}%`.yellow : `${ele[0].shortPer}%`, ele[0].discount > 1 ? ele[0].show.red : ele[0].show, '|',
-              ele[1].name, ele[1].num, ele[1].percent >= 3 ? `${ele[1].shortPer}%`.yellow : `${ele[1].shortPer}%`, ele[1].discount > 1 ? ele[1].show.red : ele[1].show, '|',
-              ele[2].name, ele[2].num, ele[2].percent >= 3 ? `${ele[2].shortPer}%`.yellow : `${ele[2].shortPer}%`, ele[2].discount > 1 ? ele[2].show.red : ele[2].show, '|',
-              ele[3].name, ele[3].num, ele[3].percent >= 3 ? `${ele[3].shortPer}%`.yellow : `${ele[3].shortPer}%`, ele[3].discount > 1 ? ele[3].show.red : ele[3].show, '|',
-              ele[4].name, ele[4].num, ele[4].percent >= 3 ? `${ele[4].shortPer}%`.yellow : `${ele[4].shortPer}%`, ele[4].discount > 1 ? ele[4].show.red : ele[4].show, '|',
-              ele[5].name, ele[5].num, ele[5].percent >= 3 ? `${ele[5].shortPer}%`.yellow : `${ele[5].shortPer}%`, ele[5].discount > 1 ? ele[5].show.red : ele[5].show, '|',
-              ele[6].name, ele[6].num, ele[6].percent >= 3 ? `${ele[6].shortPer}%`.yellow : `${ele[6].shortPer}%`, ele[6].discount > 1 ? ele[6].show.red : ele[6].show
+              ele[0].name, ele[0].num, ele[0].percent >= 3 ? `${ele[0].shortPer}%`.yellow : ele[0].percent <= -4 ? `${ele[0].shortPer}%`.green : `${ele[0].shortPer}%`, ele[0].discount > 1 ? ele[0].show.red : ele[0].show, '|',
+              ele[1].name, ele[1].num, ele[1].percent >= 3 ? `${ele[1].shortPer}%`.yellow : ele[1].percent <= -4 ? `${ele[1].shortPer}%`.green : `${ele[1].shortPer}%`, ele[1].discount > 1 ? ele[1].show.red : ele[1].show, '|',
+              ele[2].name, ele[2].num, ele[2].percent >= 3 ? `${ele[2].shortPer}%`.yellow : ele[2].percent <= -4 ? `${ele[2].shortPer}%`.green : `${ele[2].shortPer}%`, ele[2].discount > 1 ? ele[2].show.red : ele[2].show, '|',
+              ele[3].name, ele[3].num, ele[3].percent >= 3 ? `${ele[3].shortPer}%`.yellow : ele[3].percent <= -4 ? `${ele[3].shortPer}%`.green : `${ele[3].shortPer}%`, ele[3].discount > 1 ? ele[3].show.red : ele[3].show, '|',
+              ele[4].name, ele[4].num, ele[4].percent >= 3 ? `${ele[4].shortPer}%`.yellow : ele[4].percent <= -4 ? `${ele[4].shortPer}%`.green : `${ele[4].shortPer}%`, ele[4].discount > 1 ? ele[4].show.red : ele[4].show, '|',
+              ele[5].name, ele[5].num, ele[5].percent >= 3 ? `${ele[5].shortPer}%`.yellow : ele[5].percent <= -4 ? `${ele[5].shortPer}%`.green : `${ele[5].shortPer}%`, ele[5].discount > 1 ? ele[5].show.red : ele[5].show, '|',
+              ele[6].name, ele[6].num, ele[6].percent >= 3 ? `${ele[6].shortPer}%`.yellow : ele[6].percent <= -4 ? `${ele[6].shortPer}%`.green : `${ele[6].shortPer}%`, ele[6].discount > 1 ? ele[6].show.red : ele[6].show
             );
           } catch {
             console.log('-----')
