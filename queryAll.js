@@ -21,18 +21,20 @@ const arr1 = [
   'sz003021', // zhaoweijidian
   // 'sz002876', // sanlipu
   // 'sz000810', // chuangwei
-  'sh688001', // huaxing
+  // 'sh688001', // huaxing
   'sh688496', // qingyue
   'sh603722', // akeli
-  'sz002045', // guoguang
+  // 'sz002045', // guoguang
   'sz301312', // zhilifang
+  'sz300556', // silu
+  'sz000681', // shijue
   'sh688039', // danghong
   'sh688088', // hongruan
   'sh603186', // huazheng
   'sz002436', // xingsen
   'sz300476', // shenghong
-  'sz002183', // yiyatong
-  'sh601636', // qibing
+  'sh688401', // luwei
+  'sh688138', // qingyi
 ];
 const arr2 = [
   'sz300474', // jingjiawei
@@ -46,21 +48,20 @@ const arr2 = [
   'sz300502', // xinyisheng
   'sz300620', // guangku
   'sz301205', // liante
-  'sh688195', // tengjing
   'sz300570', // taichenguang
   'sz300394', // tianfu
-  // 'sz300033', // tonghuashun
   'sz002229', // hongbo
   'sz300624', // wanxing
   'sz300418', // kunlun
-  'sz300533', // bingchuan
   'sz002261', // tuowei
   'sz300229', // tuoersi
   // 'sz300785', // zhidemai
   'sz300058', // guangbiao
   'sz300678', // zhongkexinxi
+  'sz301110', // qingmu
   'sh603918', // jinqiao
   // 'sh603171', // shuiyou
+  'sz300033', // tonghuashun
   'sh688787', // haitian
   'sh688343', // yuntian
 ];
@@ -83,6 +84,7 @@ const arr3 = [
   'sz002338', // aopu
   'sh600895', // zhangjianggaoke
   'sz002222', // fujing
+  'sh688195', // tengjing
   // 'sh688037', // xinyuanwei
   // 'sh688383', // xinyichang
   // 'sh603690', // zhichun
@@ -93,7 +95,7 @@ const arr3 = [
   'sz002654', // wanrun
   'sz300655', // jingrui
   'sz300576', // rongda
-  'sz300346', // nanda
+  // 'sz300346', // nanda
   'sh603650', // tongcheng
   'sz300666', // jiangfeng
   'sz300260', // xinlai
@@ -119,17 +121,18 @@ const arr4 = [
   'sh601595', // shanghaidianying 
   'sz300182', // jiecheng
   'sz300280', // zitian
-  'sh603000', // renmin
-  'sh603888', // xinhua
+  'sz300031', // baotong
+  'sz300533', // bingchuan
+  'sz300002', // shenzhouyuetai
   'sz300188', // meiya
   'sh688030', // shanshi
   'sz301165', // ruijie
   'sz300075', // shuzizhengtong
   // 'sz300579', // shurirenzheng
   'sz301153', // zhongkejiangnan
-  'sz002063', // yuanguang
-  // 'sh603636', // nanwei
-  'sz003040', // chutiankong
+  // 'sz002063', // yuanguang
+  'sh603636', // nanwei
+  // 'sz003040', // chutiankong
   // 'sz002235', // anni
   'sz300339', // runhe
   'sz300479', // shensi
@@ -151,7 +154,6 @@ const arr5 = [
   'sz300024', // jiqiren
   'sh603728', // mingzhi
   'sz002334', // yingweiteng
-  'sz002747', // aisidun
   'sh688700', // dongwei
   'sh688017', // lvde
   'sz300161', // huazhong
@@ -164,6 +166,7 @@ const arr5 = [
   // 'sz000837', // qinchuang
   'sh688322', // aobi
   'sh688686', // aopute
+  'sz002747', // aisidun
   'sz002553', // nanfang
   'sz002077', // dagang
   'sz300373', // yangjie
@@ -252,23 +255,25 @@ const arr7 = [
   // 'sh601012', // longji
   // 'sh600519', // maotai
   'sh600030', // zhongxin
-  'sz300059', // dongcai
-  'sh601628', // renshou
+  // 'sz300059', // dongcai
+  // 'sh601628', // renshou
   // 'sh600036', // zhaoshang
   // 'sz000001', // pingyin
   // 'sz002594', // byd
   // 'sh601899', // zijin
   'sh601857', // zhongshiyou
+  'sh601728', // dianxin
   // 'sh601088', // shenhua
   // 'sh600900', // changjiang
-  'sh600150', // zhongchuan
+  // 'sh600150', // zhongchuan
   'sh600072', // zhongchuankeji
-  'sh601728', // dianxin
   'sh601698', // weitong
   'sh600118', // weixing
   // 'sz000831', // zhongxi
-  'sz300114', // diance
+  // 'sz300114', // diance
   // 'sz300124', // huichuan
+  'sh603000', // renmin
+  'sh603888', // xinhua
   'sz000977', // langchao
   'sh603019', // shuguang
   'sz002463', // hudian
@@ -276,6 +281,8 @@ const arr7 = [
   'sh601360', // 360
   'sz002230', // xunfei
   'sz300316', // jingsheng
+  'sz002183', // yiyatong
+  'sh601636', // qibing
 ];
 
 const map1 = {};
